@@ -1,0 +1,307 @@
+/*css*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #141414;
+    color: #ffffff;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #000000; /* Dark background */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 3px solid #E50914;
+    justify-content: space-between; /* Netflix red underline */
+}
+header nav {
+    margin-left: 12rem; /* Adjust this value to shift navigation left */
+}
+
+header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #E50914; /* Netflix red color */
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin-left: 1.5rem;
+}
+
+header nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #E50914; /* Netflix red hover effect */
+}
+
+/* Style for the hero section */
+.hero {
+    text-align: center;
+    padding: 5rem 2rem;
+    background: url('hero-background.jpg') no-repeat center center/cover;
+    margin-top: 60px;
+    color: #ffffff;
+}
+
+/* Style for the profile image */
+.profile-image {
+    margin-top: 2rem;
+    width: 300px; /* Adjust size as needed */
+    height: 450px; /* Adjust size as needed */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* Shadow for 3D effect */
+    position: relative; /* Positioning for overlay */
+    overflow: hidden; /* Hide overflow to maintain shape */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
+}
+
+/* Hover effect to scale image */
+.profile-image:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); /* Enhanced shadow on hover */
+}
+
+/* Overlay effect */
+.profile-image::before {
+    content: ""; /* Empty content for the overlay */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s; /* Smooth transition for overlay */
+}
+
+/* Show overlay on hover */
+.profile-image:hover::before {
+    opacity: 1; /* Show overlay on hover */
+}
+
+/* Play button icon */
+.profile-image::after {
+    content: "\f144"; /* Font Awesome play icon */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: #E50914; /* Play button color matching Netflix theme */
+    font-size: 4rem; /* Size of the play button */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the icon */
+}
+
+/* About Me paragraph box styling */
+.about-me-box {
+    background-color: #333; /* Dark background color for the box */
+    border-radius: 8px; /* Rounded corners */
+    padding: 2rem; /* Padding inside the box */
+    margin: 2rem auto; /* Margin to center the box */
+    max-width: 800px; /* Maximum width for the box */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* Shadow for 3D effect */
+}
+
+/* About Me paragraph text styling */
+.about-me-box p {
+    margin: 0; /* Remove default margin */
+    font-size: 1.2rem; /* Increase font size */
+    line-height: 1.6; /* Improve readability with line spacing */
+    color: #fff; /* Text color */
+}
+    
+.hero p {
+    text-align: center; /* Center align the paragraph text */
+    margin: 0 auto; /* Center the paragraph block */
+    max-width: 800px; /* Maximum width for better readability */
+    line-height: 1.6; /* Improve readability with line spacing */
+    padding: 0 1rem; /* Padding to prevent text from touching the edges */
+}
+
+/* Netflix-like logo style */
+.netflix-logo {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 6rem; /* Larger font size for impact */
+    color: #E50914; /* Bright red similar to Netflix logo */
+    text-shadow: 
+        1px 1px 2px rgba(0,0,0,0.7), /* Softer shadow */
+        0 0 10px rgba(0,0,0,0.5); /* Light glow effect */
+    letter-spacing: 0.2rem; /* Slightly increased letter spacing for readability */
+    opacity: 0;
+    transform: scale(1.5) translateZ(-200px); /* Initial scale and position behind */
+    animation: fadeIn 2s forwards, scaleIn 2s forwards;
+}
+
+/* Container for skill logos */
+.skills-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    height: 100px; /* Adjust based on logo size */
+}
+
+.skills-logo {
+    margin: 0 1rem; /* Space between logos */
+    animation: moveLogo 10s linear infinite; /* Animation effect */
+}
+
+.skills-logo img {
+    width: 50px; /* Adjust based on logo size */
+    height: auto;
+}
+
+/* Keyframes for moving logos from side to side */
+@keyframes moveLogo {
+    0% {
+        transform: translateX(-100%);
+    }
+    50% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Animation timing and spacing */
+.skills-container .skills-logo {
+    animation: moveLogo 15s linear infinite; /* Adjust duration for smooth animation */
+}
+
+.skills-container .skills-logo:nth-child(odd) {
+    animation-delay: -7s; /* Stagger animations for varied effects */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(1.5) translateZ(-200px); /* Initial position behind and scaled up */
+    }
+    100% {
+        transform: scale(1) translateZ(0); /* Final position and scale */
+    }
+}
+
+.projects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.project-item {
+    background-color: #222;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 1rem;
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    color: #fff;
+    text-decoration: none; /* Remove default link styles */
+}
+
+.project-item img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.project-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.project-item h3,
+.project-item p {
+    margin: 0.5rem 0;
+}
+
+.contact-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+.contact-icon {
+    color: #E50914; /* Bright red color matching the Netflix theme */
+    font-size: 2rem; /* Adjust size as needed */
+    transition: color 0.3s, transform 0.3s; /* Smooth transition for hover effects */
+}
+
+.contact-icon:hover {
+    color: #ffffff; /* Color on hover */
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.hero p {
+    text-align: center;
+    font-size:large; /* Center the 'About Me' text */
+}
+
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #E50914; /* Netflix red footer */
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s, transform 0.6s;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
